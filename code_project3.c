@@ -35,7 +35,7 @@ struct BinNode
 {
 	float Item;
 	int processLength;
-           int processTime;
+        int processTime;
 	char processName[30];
 	int firstEnter;
 	int wTime;
@@ -168,7 +168,7 @@ BinQueue MakeEmpty( BinQueue H ){
 BinQueue Insert( float Item,char *pName,int pLength,int pTime,int firstTime,int waitTime, BinQueue H ){
             BinTree NewNode;
             BinQueue OneItem;
-	 int i;
+	    int i;
 
             NewNode = malloc( sizeof( struct BinNode ) );
             if( NewNode == NULL )
@@ -179,9 +179,8 @@ BinQueue Insert( float Item,char *pName,int pLength,int pTime,int firstTime,int 
             NewNode->firstEnter=firstTime;
             NewNode->wTime=waitTime;
             strcpy(NewNode->processName,pName);
-	 NewNode->Item = Item;
+	    NewNode->Item = Item;
          
-
             OneItem = Initialize( );
             OneItem->CurrentSize = 1;
             OneItem->TheTrees[ 0 ] = NewNode;
@@ -196,11 +195,11 @@ float DeleteMin( BinQueue H ){
             BinQueue DeletedQueue;
             Position DeletedTree, OldRoot;
             ElementType MinItem;
-			//model_node_type MinItem;
+	    //model_node_type MinItem;
 
             if( IsEmpty( H ) )
             {
-                Error( "Empty binomial queue" );
+             Error( "Empty binomial queue" );
 	     MinItem=-INFINITY;
 				
 			//  for (i=0; i < max_act_const; i++) {
@@ -218,7 +217,7 @@ float DeleteMin( BinQueue H ){
                 {
                     /* Update minimum */
                     MinItem = H->TheTrees[ i ]->Item;
-	         strcpy(name,H->TheTrees[ i ]->processName);
+	            strcpy(name,H->TheTrees[ i ]->processName);
                     MinTree = i;
                 }
             }
@@ -252,7 +251,7 @@ int FindMin( BinQueue H ){
             if( IsEmpty( H ) )
             {
                 Error( "Empty binomial queue" );
-	     MinItem=0;
+	        MinItem=0;
                 return MinItem;
             }
 
@@ -504,7 +503,7 @@ BinTree addWaitingTime(BinTree p, BinTree *r, int i ,int process){
 		  if(strcmp(name,p->processName)!=0){
 		  	traverse=copyRoot;
 		  	while(traverse!=NULL){
-		  	              if(strcmp(p->processName,traverse->pName)==0){
+		  	           if(strcmp(p->processName,traverse->pName)==0){
 		  		   traverse->wTime=traverse->wTime+process;
 				  }
 		  		traverse=traverse->next;
@@ -606,8 +605,7 @@ int main(){
 		struct list *againList=root;
 		struct list *awtList=awt;   
 					    
-		while(list!=NULL){
-				    	
+		while(list!=NULL){    	
 			list->copyLength=list->pLength;		    			    	
 			list=list->next;			
 		}
@@ -629,7 +627,7 @@ int main(){
         	
         		calculateFirstTime(traverse->pLength);
         		traverse->firstEnter=0;
-		Item=pValue;
+		        Item=pValue;
         		
         		traverse->again=1;
         		Insert(Item,traverse->pName,traverse->pLength,traverse->pTime,traverse->firstEnter,traverse->wTime,H1);	
@@ -658,12 +656,11 @@ int main(){
 						//If Delete process happened.
 						if(isDelete=1){
 								
-							search=root;
+						search=root;
 					    	while(search!=NULL){
 					    		//printf("%s",name);
 					    		//If the process didn't complete,this code works
 					    		if(strcmp(search->pName,name)==0){
-					    			
 					    			search->pLength=search->pLength-1;
 					    			if(search->pLength>0){
 					    			calculate(findemax,search->pLength);	
@@ -679,8 +676,7 @@ int main(){
 						  countNode(p, r, 0); 
 						}  
 					    	countNodes=count;
-								
-								
+							
 						if(countNodes>=1){
 							for (i=0; i<MaxTrees; i++) {
 			             			p=H1->TheTrees[i];
@@ -755,7 +751,7 @@ int main(){
         		        	
         		calculateFirstTime(againList->pLength);
         		againList->firstEnter=0;
-		Item=pValue;
+		        Item=pValue;
         		againList->again=y;
         		Insert(Item,againList->pName,againList->pLength,againList->pTime,againList->firstEnter,againList->wTime,H1);	
 	}
@@ -820,7 +816,7 @@ int main(){
 								//Add waiting time!
 								if(countNodes>=2){
 								for (i=0; i<MaxTrees; i++) {
-			             		p=H1->TheTrees[i];
+			             		                p=H1->TheTrees[i];
 						  		addWaitingTime(p, r, 0,late);   
 						} 
 						}
@@ -844,7 +840,6 @@ int main(){
 			float number2 = (float)totalwTime/node;
 			insertAwt(&awt,number2);
 			}
-		
 		awtList=awt;
 		int c=0;
 		//*******************************AWT LIST******************************************
@@ -853,9 +848,8 @@ int main(){
 		while(awtList!=NULL){
 		   printf("\nq=%d		%.2f",++c,awtList->AWT);
 		   //fprintf(output,"\nq=%d		%.2f",c,awtList->AWT);	
-	              awtList=awtList->next;
+	           awtList=awtList->next;
 		}
-	
 }
 	fclose(output);
 //********************************END***********************************************************
