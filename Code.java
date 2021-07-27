@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class GizemAndElif {
+public class Code {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
@@ -38,8 +38,6 @@ public class GizemAndElif {
 			double y = Double.parseDouble(c[2]);
 			
 			citys.add(new city(id,x,y));//we created cities with these info's and we stored them in arraylist.
-			
-			
 			
 			totalcity++;
 		 }
@@ -102,7 +100,6 @@ public class GizemAndElif {
 			 }
 			 else {
 				 path+= shortPath;
-				
 			 }
 			
 			 
@@ -121,7 +118,6 @@ public class GizemAndElif {
 		    if(path<temp) {//If the path is smaller than temp
 				 temp =path;
 				 opts = b;//In the end,optimum starting point
-			
 			 }
 		
 			
@@ -130,8 +126,6 @@ public class GizemAndElif {
 		 }
 		 pw.println((int)temp); //printing optimal tour
 		 
-		 
-		
 		 //--------------------------------------------------------------------------
 		 path = 0;
 		 ind=opts;//selecting starting city' id  with optimal tour's starting id
@@ -163,17 +157,12 @@ public class GizemAndElif {
 				pw.println(optj);
 				
 			 }
-			
-			 
+
 			 citys.get(optj).visited = true;
 			 ind = optj;//Go next city
 			 
 		 }
-		 
-		 
-		 pw.close();
-			 
-		 
+		 pw.close();		 
 			} 
 		 
 	public static double dist(double x1,double y1,double x2,double y2) {//Find the distance between two cities
@@ -185,7 +174,6 @@ public class GizemAndElif {
 		   return dist;
 	   }
 		 
-
 	} 
 
 class city { //creating city object
@@ -194,7 +182,6 @@ class city { //creating city object
 	public double y;
 	public boolean visited;
 
-	
 	public city (double id,double x,double y){
 		this.id = id;
 		this.x = x;
