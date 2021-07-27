@@ -45,8 +45,8 @@ public class Code {
 		 
 		int[][] adjaceny = new int[totalcity][totalcity]; //we created adjaceny matrix for storing distances between cities.
 		 
-		/* We calculated and stored distance values of cities in this two for loop.
-		 */
+		// We calculated and stored distance values of cities in this two for loop.
+		 
 		 
 		 for( int i = 0 ;i < totalcity ; i++) {
 				for(int j = 0 ; j < totalcity ; j++) {
@@ -72,9 +72,9 @@ public class Code {
 		 int i = 0;
 		 int start = 0;
 		 
-		 /*
-		  * For each starting point e calculated their shortest paths in the end, we selected minimal distance.
-		  */
+		 
+		  //For each starting point e calculated their shortest paths in the end, we selected minimal distance.
+		  
 		 for(int b = 0; b < citys.size() ; b++ ) {
 			 citys.get(b).visited = true;  //if city is visited
 			 ind = b; //make start index to b
@@ -105,7 +105,6 @@ public class Code {
 			 
 			 citys.get(optj).visited = true;//If city is visited
 			 ind = optj; //Go next city,nearest point's id.
-			 
 		 } 
 		    
 		    if(b==0) {//If the first time for the visiting
@@ -119,8 +118,7 @@ public class Code {
 				 temp =path;
 				 opts = b;//In the end,optimum starting point
 			 }
-		
-			
+			 
 		    for(int c = 0; c < citys.size() ; c++ )
 		    	 citys.get(c).visited = false;  //Assume the cities are not visited for next starting path
 		 }
@@ -150,17 +148,14 @@ public class Code {
 			 
 			 if(i == citys.size()-1) {//If the point is in the last city
 				 path+= adjaceny[opts][optj];
-			
 			 }
 			 else {
 				 path+= shortPath;
 				pw.println(optj);
-				
 			 }
 
 			 citys.get(optj).visited = true;
 			 ind = optj;//Go next city
-			 
 		 }
 		 pw.close();		 
 			} 
@@ -173,7 +168,6 @@ public class Code {
 		   double dist = Math.sqrt(dis);
 		   return dist;
 	   }
-		 
 	} 
 
 class city { //creating city object
